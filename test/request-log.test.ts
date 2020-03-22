@@ -14,21 +14,21 @@ describe("logging", () => {
     const MyOctokit = Octokit.plugin(requestLog);
     const octokit = new MyOctokit({
       request: {
-        fetch: mock
+        fetch: mock,
       },
       log: {
         debug: mockDebugInfo,
         info: mockLogInfo,
         warn() {},
-        error() {}
-      }
+        error() {},
+      },
     });
 
     await octokit.request("GET /");
     expect(mockDebugInfo.mock.calls[0][0]).toEqual("request");
     expect(mockDebugInfo.mock.calls[0][1]).toMatchObject({
       method: "GET",
-      url: "/"
+      url: "/",
     });
     expect(mockLogInfo.mock.calls[0][0]).toMatch(/GET \/ - 200 in \d+ms/);
   });
@@ -43,14 +43,14 @@ describe("logging", () => {
     const MyOctokit = Octokit.plugin(requestLog);
     const octokit = new MyOctokit({
       request: {
-        fetch: mock
+        fetch: mock,
       },
       log: {
         debug: mockDebugInfo,
         info: mockLogInfo,
         warn() {},
-        error() {}
-      }
+        error() {},
+      },
     });
 
     try {

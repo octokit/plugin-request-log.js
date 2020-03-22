@@ -14,19 +14,20 @@ export function requestLog(octokit: Octokit) {
     const path = requestOptions.url.replace(options.baseUrl, "");
 
     return (request as typeof octokit.request)(options)
-      .then(response => {
+      .then((response) => {
         octokit.log.info(
-          `${requestOptions.method} ${path} - ${
-            response.status
-          } in ${Date.now() - start}ms`
+          `${requestOptions.method} ${path} - ${response.status} in ${
+            Date.now() - start
+          }ms`
         );
         return response;
       })
 
-      .catch(error => {
+      .catch((error) => {
         octokit.log.info(
-          `${requestOptions.method} ${path} - ${error.status} in ${Date.now() -
-            start}ms`
+          `${requestOptions.method} ${path} - ${error.status} in ${
+            Date.now() - start
+          }ms`
         );
         throw error;
       });

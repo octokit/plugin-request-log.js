@@ -56,8 +56,8 @@ In order to log all request options, the `log.debug` option needs to be set. We 
 const octokit = new MyOctokit({
   log: require("console-log-level")({
     auth: "secret123",
-    level: "info"
-  })
+    level: "info",
+  }),
 });
 ```
 
