@@ -17,8 +17,8 @@ Load `@octokit/plugin-request-log` and [`@octokit/core`](https://github.com/octo
 
 ```html
 <script type="module">
-  import { Octokit } from "https://cdn.pika.dev/@octokit/core";
-  import { requestLog } from "https://cdn.pika.dev/@octokit/plugin-request-log";
+  import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+  import { requestLog } from "https://cdn.skypack.dev/@octokit/plugin-request-log";
 </script>
 ```
 
