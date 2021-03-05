@@ -9,7 +9,7 @@
     "pretest": "npm run -s lint",
     "test": "jest --coverage"
   },
-  "repository": "https://github.com/octokit/plugin-request-log.js",
+  "repository": "github:octokit/plugin-request-log.js",
   "keywords": [
     "github",
     "api",
