@@ -18,7 +18,7 @@ export function requestLog(octokit: Octokit) {
         octokit.log.info(
           `${requestOptions.method} ${path} - ${response.status} in ${
             Date.now() - start
-          }ms`
+          }ms`,
         );
         return response;
       })
@@ -27,7 +27,7 @@ export function requestLog(octokit: Octokit) {
         octokit.log.info(
           `${requestOptions.method} ${path} - ${error.status} in ${
             Date.now() - start
-          }ms`
+          }ms`,
         );
         throw error;
       });
