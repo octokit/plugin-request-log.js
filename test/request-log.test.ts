@@ -57,7 +57,7 @@ describe("logging", () => {
       await octokit.request("GET /unknown");
     } catch (error) {
       expect(mockLogInfo.mock.calls[0][0]).toMatch(
-        /GET \/unknown - 404 in \d+ms/
+        /GET \/unknown - 404 in \d+ms/,
       );
       return;
     }
