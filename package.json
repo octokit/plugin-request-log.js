@@ -2,12 +2,13 @@
   "name": "@octokit/plugin-request-log",
   "version": "0.0.0-development",
   "description": "Log all requests and request errors",
+  "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs && tsc -p tsconfig.json",
     "lint": "prettier --check '{src,test,scripts}/**/*' README.md package.json",
     "lint:fix": "prettier --write '{src,test,scripts}/**/*' README.md package.json",
     "pretest": "npm run -s lint",
-    "test": "jest --coverage"
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest --coverage"
   },
   "repository": "github:octokit/plugin-request-log.js",
   "keywords": [
@@ -19,11 +20,11 @@
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
   "license": "MIT",
   "peerDependencies": {
-    "@octokit/core": "5"
+    "@octokit/core": ">=6"
   },
   "devDependencies": {
-    "@octokit/core": "^5.0.0",
-    "@octokit/tsconfig": "^2.0.0",
+    "@octokit/core": "^6.0.0",
+    "@octokit/tsconfig": "^3.0.0",
     "@types/fetch-mock": "^7.3.2",
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
@@ -37,11 +38,15 @@
     "typescript": "^5.0.0"
   },
   "jest": {
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
     "transform": {
       "^.+\\.(ts|tsx)$": [
         "ts-jest",
         {
-          "tsconfig": "test/tsconfig.test.json"
+          "tsconfig": "test/tsconfig.test.json",
+          "useESM": true
         }
       ]
     },
@@ -52,6 +57,9 @@
         "functions": 100,
         "lines": 100
       }
+    },
+    "moduleNameMapper": {
+      "^(.+)\\.jsx?$": "$1"
     }
   },
   "release": {

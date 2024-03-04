@@ -1,5 +1,5 @@
 import type { Octokit } from "@octokit/core";
-import { VERSION } from "./version";
+import { VERSION } from "./version.js";
 
 /**
  * @param octokit Octokit instance
