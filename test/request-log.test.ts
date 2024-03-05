@@ -1,7 +1,8 @@
 import { Octokit } from "@octokit/core";
 import fetchMock from "fetch-mock";
+import { jest } from "@jest/globals";
 
-import { requestLog } from "../src";
+import { requestLog } from "../src/index.js";
 
 describe("logging", () => {
   it("logs sucessful 'GET /'", async () => {

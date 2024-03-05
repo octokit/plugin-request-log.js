@@ -1,4 +1,4 @@
-import { requestLog } from "../src";
+import { requestLog } from "../src/index.js";
 
 describe("Smoke test", () => {
   it("is a function", () => {

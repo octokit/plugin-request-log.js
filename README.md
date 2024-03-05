@@ -30,8 +30,8 @@ Node
 Install with `npm install @octokit/core @octokit/plugin-request-log`. Optionally replace `@octokit/core` with a core-compatible module
 
 ```js
-const { Octokit } = require("@octokit/core");
-const { requestLog } = require("@octokit/plugin-request-log");
+import { Octokit } from "@octokit/core";
+import { requestLog } from "@octokit/plugin-request-log";
 ```
 
 </td></tr>
@@ -52,8 +52,9 @@ octokit.request("GET /oops");
 In order to log all request options, the `log.debug` option needs to be set. We recommend the [console-log-level](https://github.com/watson/console-log-level) package for a configurable log level
 
 ```js
+import consoleLogLevel from "console-log-level";
 const octokit = new MyOctokit({
-  log: require("console-log-level")({
+  log: consoleLogLevel({
     auth: "secret123",
     level: "info",
   }),
