@@ -44,7 +44,6 @@ import { requestLog } from "@octokit/plugin-request-log";
 > See the TypeScript docs on [package.json "exports"](https://www.typescriptlang.org/docs/handbook/modules/reference.html#packagejson-exports).<br>
 > See this [helpful guide on transitioning to ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) from [@sindresorhus](https://github.com/sindresorhus)
 
-
 ```js
 const MyOctokit = Octokit.plugin(requestLog);
 const octokit = new MyOctokit({ auth: "secret123" });
