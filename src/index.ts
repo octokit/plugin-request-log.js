@@ -15,8 +15,9 @@ export function requestLog(octokit: Octokit) {
 
     return (request as typeof octokit.request)(options)
       .then((response) => {
+        const requestId = response.headers["x-github-request-id"];
         octokit.log.info(
-          `${requestOptions.method} ${path} - ${response.status} in ${
+          `${requestOptions.method} ${path} - ${response.status} with id ${requestId} in ${
             Date.now() - start
           }ms`,
         );
@@ -24,8 +25,10 @@ export function requestLog(octokit: Octokit) {
       })
 
       .catch((error) => {
-        octokit.log.info(
-          `${requestOptions.method} ${path} - ${error.status} in ${
+        const requestId =
+          error.response.headers["x-github-request-id"] || "UNKNOWN";
+        octokit.log.error(
+          `${requestOptions.method} ${path} - ${error.status} with id ${requestId} in ${
             Date.now() - start
           }ms`,
         );
