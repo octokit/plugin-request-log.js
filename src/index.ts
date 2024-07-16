@@ -26,7 +26,7 @@ export function requestLog(octokit: Octokit) {
 
       .catch((error) => {
         const requestId =
-          error.response.headers["x-github-request-id"] || "UNKNOWN";
+          error.response?.headers["x-github-request-id"] || "UNKNOWN";
         octokit.log.error(
           `${requestOptions.method} ${path} - ${error.status} with id ${requestId} in ${
             Date.now() - start
