@@ -1,6 +1,6 @@
+import { describe, expect, it, vi } from "vitest";
 import { Octokit } from "@octokit/core";
 import fetchMock from "fetch-mock";
-import { jest } from "@jest/globals";
 
 import { requestLog } from "../src/index.js";
 
@@ -16,8 +16,8 @@ describe("logging", () => {
       },
     });
 
-    const mockLogInfo = jest.fn();
-    const mockDebugInfo = jest.fn();
+    const mockLogInfo = vi.fn();
+    const mockDebugInfo = vi.fn();
     const MyOctokit = Octokit.plugin(requestLog);
     const octokit = new MyOctokit({
       request: {
@@ -51,9 +51,9 @@ describe("logging", () => {
       },
     });
 
-    const mockLogInfo = jest.fn();
-    const mockErrorInfo = jest.fn();
-    const mockDebugInfo = jest.fn();
+    const mockLogInfo = vi.fn();
+    const mockErrorInfo = vi.fn();
+    const mockDebugInfo = vi.fn();
     const MyOctokit = Octokit.plugin(requestLog);
     const octokit = new MyOctokit({
       request: {
@@ -85,9 +85,9 @@ describe("logging", () => {
       body: "Internal Server Error",
     });
 
-    const mockLogInfo = jest.fn();
-    const mockErrorInfo = jest.fn();
-    const mockDebugInfo = jest.fn();
+    const mockLogInfo = vi.fn();
+    const mockErrorInfo = vi.fn();
+    const mockDebugInfo = vi.fn();
     const MyOctokit = Octokit.plugin(requestLog);
     const octokit = new MyOctokit({
       request: {
