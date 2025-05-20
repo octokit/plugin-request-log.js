@@ -1,6 +1,6 @@
 import esbuild from "esbuild";
 import { copyFile, readFile, writeFile, rm } from "node:fs/promises";
-import { glob } from "glob";
+import { glob } from "tinyglobby";
 
 const sharedOptions = {
   sourcemap: "external",
@@ -43,7 +43,6 @@ async function main() {
   delete pkg.scripts;
   delete pkg.prettier;
   delete pkg.release;
-  delete pkg.jest;
   await writeFile(
     "pkg/package.json",
     JSON.stringify(
